@@ -1,0 +1,26 @@
+version: "3"
+
+
+services:
+  mysql:
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 12345
+      MYSQL_DATABASE: steam
+
+    container_name: mysql
+    image: mysql:8.1
+    volumes:
+      - mysql_volume:/var/lib/mysql
+    ports:
+      - 3307:3306
+    networks:
+      - mysql_network
+
+volumes:
+  mysql_volume:
+
+
+networks:
+  mysql_network:
